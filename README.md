@@ -36,7 +36,7 @@ a fin de minimizar la suma de los cuadrados dentro de cada grupo
  <img alt="YOUR-ALT-TEXT" src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5337aaa52e8956d39a6d4c0d9b022d26540b4a56">
 </picture>
 
-donde **µ**<sub>i<sub> es la media de puntos en **S**<sub>i<sub>. 
+donde **µ**<sub>i</sub> es la media de puntos en **S**<sub>i</sub>. 
 
 
 
