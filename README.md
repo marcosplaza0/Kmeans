@@ -48,6 +48,7 @@ __Para desarrollar el programa usare las siguientes librerias 📖:__
 -    [Numpy](https://numpy.org/)
 -    [Scikit-learn](https://scikit-learn.org/stable/)
 -    [Flet](https://flet.dev/)
+-    [Pandas](https://pandas.pydata.org/)
 > [!NOTE]
 > Si no tienes los paquetes instalados o trabajas en un Entorno de Desarollo, los puedes instalar así con pip:
 
@@ -59,6 +60,9 @@ pip install scikit-learn
 ```
 ```
 pip install flet
+```
+```
+pip install pandas
 ```
 
 ## Muchas gracias por tomar el tiempo de leer esto 🎁
