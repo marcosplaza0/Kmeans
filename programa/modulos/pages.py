@@ -1,6 +1,7 @@
 from flet import *
-from modulos.texts import PAGE1_TEXT, PAGEFISH_TEXT, PAGEFISH2_TEXT
+from modulos.texts import PAGE1_TEXT, PAGEFISH_TEXT, PAGEFISH2_TEXT, PAGESHOP_TEXT, PAGESHOP2_TEXT
 from modulos.fish import fish_canva
+from modulos.shop import shop_canva
 
 class Menu_drawer(NavigationDrawer):
     def __init__(self, view):
@@ -20,19 +21,13 @@ class Menu_drawer(NavigationDrawer):
             NavigationDrawerDestination(
                 label="Peces",
                 icon=icons.FLOOD,
-                selected_icon_content=Icon(icons.SHOP_TWO),
+                selected_icon_content=Icon(icons.FLOOD_OUTLINED),
             ),
             Container(height=12),
             NavigationDrawerDestination(
-                label="Añadir empleados",
+                label="Shop",
                 icon=icons.PERSON_OUTLINED,
                 selected_icon_content=Icon(icons.PERSON),
-            ),
-            Container(height=12),
-            NavigationDrawerDestination(
-                label="Añadir productos",
-                icon=icons.FOOD_BANK_OUTLINED,
-                selected_icon_content=Icon(icons.FOOD_BANK),
             ),
         ]
 
@@ -43,9 +38,7 @@ class Menu_drawer(NavigationDrawer):
         elif index == 1:
             self.view.page.go("/Fish")
         elif index == 2:
-            self.view.page.go("/empleados")
-        elif index == 3:
-            self.view.page.go("/productos")
+            self.view.page.go("/Shop")
 
     def show_drawer(self, e):
         self.view.drawer.open = True
@@ -125,6 +118,12 @@ class Inicio(View):
                                                 height=500,
                                                 fit=ImageFit.CONTAIN,
                                             ),
+                                            Image(
+                                                src=f"../resources/images/Tabla_shop.png",
+                                                width=500,
+                                                height=500,
+                                                fit=ImageFit.CONTAIN,
+                                            ),
                                         ]
                                     )
                                 ],
@@ -175,6 +174,57 @@ class PageFish(View):
                                     fish_canva,
                                     Markdown(
                                         PAGEFISH2_TEXT,
+                                        selectable=True,
+                                        extension_set=MarkdownExtensionSet.GITHUB_WEB,
+                                        on_tap_link=lambda e: self.page.launch_url(e.data),
+                                    ),
+                                ],
+                            ),
+                        )
+                    ],
+                    horizontal_alignment=CrossAxisAlignment.CENTER,
+                ),
+            )
+        ]
+
+
+
+class PageShop(View):
+    def __init__(self, pg):
+        super(PageShop, self).__init__(
+            route="/Shop",
+            horizontal_alignment=CrossAxisAlignment.CENTER,
+            vertical_alignment=MainAxisAlignment.CENTER,
+            padding=0,
+        )
+        self.drawer: NavigationDrawer = Menu_drawer(self)
+        self.page: Page = pg
+        self.controls = [
+            Container(
+                bgcolor=colors.WHITE,
+                margin=0,
+                height=self.page.window.height,
+                content=Column(
+                    scroll= ScrollMode.AUTO,
+                    controls=[
+                        Header("Shop", self.drawer.show_drawer),
+                        Container(
+                            padding = padding.only(30,20,30,60),
+                            content =Column(
+                                scroll= ScrollMode.AUTO,
+                                controls= [
+                                    Text("Aplicacion de Kmeans para una tienda", size=40, weight=FontWeight.BOLD),
+                                    Divider(height=10,opacity=0.5),
+                                    Markdown(
+                                        PAGESHOP_TEXT,
+                                        selectable=True,
+                                        extension_set=MarkdownExtensionSet.GITHUB_WEB,
+                                        on_tap_link=lambda e: self.page.launch_url(e.data),
+                                    ),
+                                    Divider(height=20,opacity=0.5),
+                                    shop_canva,
+                                    Markdown(
+                                        PAGESHOP2_TEXT,
                                         selectable=True,
                                         extension_set=MarkdownExtensionSet.GITHUB_WEB,
                                         on_tap_link=lambda e: self.page.launch_url(e.data),

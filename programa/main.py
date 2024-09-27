@@ -1,5 +1,5 @@
 from flet import *
-from modulos import Inicio, PageFish
+from modulos import Inicio, PageFish, PageShop
 
 ANCHO_PAGINA = 1300
 ALTO_PAGINA = 900
@@ -23,6 +23,9 @@ def main(page: Page):
             page.views.append(Show)
         elif page.route == "/Fish":
             Show = PageFish(page)
+            page.views.append(Show)
+        elif page.route == "/Shop":
+            Show = PageShop(page)
             page.views.append(Show)
         
 

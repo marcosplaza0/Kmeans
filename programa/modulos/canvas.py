@@ -17,8 +17,8 @@ def general_builder(leyendx, leyendy) -> Canvas:
                 ],
                 paint= stroke_paint
             ),
-            Text(1110,330,leyendy,TextStyle(size=30)),
-            Text(1110,370,leyendx,TextStyle(size=30)),
+            Text(1110,300,leyendy,TextStyle(size=30)),
+            Text(1110,400,leyendx,TextStyle(size=30)),
 
         ]
     )
@@ -44,7 +44,7 @@ def fish_builder(datax, df)-> Canvas:
     for i , key in enumerate(y):
         y[key] = (i-1) * (675/len(y))+(675/len(y))
 
-    canva = general_builder("X Peso","Y Tamaño")
+    canva = general_builder("X Peso","Y Especie")
 
     for i in range(len(y)):
         canva.shapes.append(
@@ -65,5 +65,46 @@ def fish_builder(datax, df)-> Canvas:
         canva.shapes.append(
             Text(x,y[row.iloc[0]],".",TextStyle(size=90, color= colors_tuple[row.iloc[4]]))
         )
-    
     return canva
+
+def shop_builder(datax, df)-> Canvas:
+    canva = general_builder("X: Income\n anual","Y: Score \nde gasto")
+    colors_tuple: tuple = (colors.RED, colors.PURPLE,colors.YELLOW, colors.GREEN,colors.ORANGE)
+    for i in range(10):
+        canva.shapes.append(
+            Text(i*90 + 230,770, round(i * ((datax[1]-datax[0])/10)+ datax[0],2))
+        )
+        canva.shapes.append(
+            Text(150,i*75 + 30, str(100-10*i))
+        )
+
+    for i, row in df.iterrows():
+        if i ==0:
+            continue
+
+        numberMinus = row.iloc[3] - datax[0]
+        distance = datax[1] - datax[0]
+        x = int(870*numberMinus/distance+205)
+        
+        y = int((750-(750*(row.iloc[4]/100))-70)*0.95)
+
+        canva.shapes.append(
+            Text(x,y,".",TextStyle(size=90, color= colors_tuple[row.iloc[8]]))
+        )
+
+    return canva
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

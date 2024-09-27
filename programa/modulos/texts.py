@@ -87,3 +87,59 @@ PAGEFISH2_TEXT = """
 ##
 
 """
+
+
+
+PAGESHOP_TEXT = """
+
+## ***Ahora vamos a organizar a los clientes de una tienda segun sus ingresos y su puntuacion de gastos en la tienda***
+
+## 
+
+- #### *Suponiendo que los datos que tenemos fueran de clientes registrados de alguna forma dentro del comercio o con una targeta,*
+    #### *podríamos a la hora de eviar gmails con propaganda o recomendaciones, personalizarlos según el cluster en el que estuviera cada persona.*
+ 
+## 
+## 
+
+#### Solo vamos a usar los parámetros mencionados al inicio, aunque se podrían añadir más aún para buscar mas relaciones a la hora de crear propaganda y anuncios.
+#### 4 Es un número de clusters bueno en este caso, con dos la información se queda muy generalizada, pero como solo hemos pasado dos parametros,
+#### añadir mas tampoco nos trae ningún beneficio notable.
+
+## 
+## 
+
+
+## **Grafico del resultado:**
+
+"""
+
+
+
+PAGESHOP2_TEXT = """
+
+##
+##
+
+#### La base de datos está descargada como fichero dentro de los documentos del programa, pero procede de [Kaggle](https://www.kaggle.com/datasets/datascientistanna/customers-dataset).
+
+##
+##
+
+## **Y Recuerda!!!**
+
+##
+
+##### *Todo el código de los algoritmos se encuentra en [Github](https://github.com/marcosplaza0/Kmeans).*
+##### *Aplicación creada y desarrollada por [marcosplaza0](https://github.com/marcosplaza0)*
+
+##
+##
+
+
+![Image from Flet assets](https://www.feedough.com/wp-content/uploads/2020/08/types-of-customers-768x429.webp)
+
+##
+##
+
+"""
