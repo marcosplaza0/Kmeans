@@ -1,15 +1,7 @@
 from flet import *
 from flet_core.canvas import *
 
-
-
-def builder(datax, datay, df)-> Canvas:
-    descarte:tuple = ("Sillaginopsis panijus", "Setipinna taty", "Puntius lateristriga", "Polynemus paradiseus", "Pethia conchonius", "Otolithoides pama", "Otolithoides biauritus", "Coilia dussumieri", "Anabas testudineus")
-    y:dict = {key: i for i, key in enumerate(descarte)}
-    colors_tuple: tuple = (colors.RED, colors.PURPLE,colors.YELLOW, colors.GREEN,colors.ORANGE)
-    for i , key in enumerate(y):
-        y[key] = (i-1) * (675/len(y))+(675/len(y))
-
+def general_builder(leyendx, leyendy) -> Canvas:
     stroke_paint = Paint(stroke_width=2, style=PaintingStyle.STROKE)
     soft_paint = Paint(stroke_width=1, style=PaintingStyle.STROKE)
     canva = Canvas(
@@ -25,8 +17,8 @@ def builder(datax, datay, df)-> Canvas:
                 ],
                 paint= stroke_paint
             ),
-            Text(1110,330,"X: Peso",TextStyle(size=30)),
-            Text(1110,370,"Y: Especie",TextStyle(size=30)),
+            Text(1110,330,leyendy,TextStyle(size=30)),
+            Text(1110,370,leyendx,TextStyle(size=30)),
 
         ]
     )
@@ -42,6 +34,18 @@ def builder(datax, datay, df)-> Canvas:
                 paint= soft_paint,
             )
         )
+    return canva
+
+
+def fish_builder(datax, df)-> Canvas:
+    descarte:tuple = ("Sillaginopsis panijus", "Setipinna taty", "Puntius lateristriga", "Polynemus paradiseus", "Pethia conchonius", "Otolithoides pama", "Otolithoides biauritus", "Coilia dussumieri", "Anabas testudineus")
+    y:dict = {key: i for i, key in enumerate(descarte)}
+    colors_tuple: tuple = (colors.RED, colors.PURPLE,colors.YELLOW, colors.GREEN,colors.ORANGE)
+    for i , key in enumerate(y):
+        y[key] = (i-1) * (675/len(y))+(675/len(y))
+
+    canva = general_builder("X Peso","Y Tamaño")
+
     for i in range(len(y)):
         canva.shapes.append(
             Text(10,i * (675/len(y))+(675/len(y)), list(y)[i])

@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 #import matplotlib.pyplot as plt
-from modulos.canvas import builder
+from modulos.canvas import fish_builder
 
 
 
@@ -27,5 +27,5 @@ df_clean['Cluster'] = kmeans.labels_
 #plt.colorbar(label='Cluster')
 #plt.show()
 
-fish_canva = builder((df_clean['weight'].min(), df_clean['weight'].max()),'species', df_clean)
+fish_canva = fish_builder((df_clean['weight'].min(),df_clean['weight'].max()), df_clean)
 
